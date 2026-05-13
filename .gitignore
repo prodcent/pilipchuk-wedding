@@ -1,0 +1,18 @@
+# Системные
+.DS_Store
+Thumbs.db
+
+# Исходные фото (используем обработанные версии из img/)
+*.HEIC
+максим.jpg
+саша.jpg
+растения.jpg
+цвета дресскод.jpg
+
+# Дубль mp3 с длинным именем (используется music.mp3)
+Artem_pora_domoj_-_O_lyubvi_(SkySound.cc).mp3
+
+# Временные файлы Python/rembg
+__pycache__/
+*.pyc
+.u2net/

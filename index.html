@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Максим и Александра - 11 июля 2026</title>
+  <meta name="description" content="Приглашение на свадьбу Максима и Александры. 11 июля 2026, Нижний Новгород, ресторан NOVO.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Аудио и кнопка mute (видна и на обложке, и на контенте) -->
+  <audio id="bgMusic" loop preload="auto" src="music.mp3"></audio>
+  <button class="mute-btn" id="muteBtn" aria-label="Включить или выключить музыку" type="button">
+    <svg viewBox="0 0 24 24" class="ico-sound" aria-hidden="true">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+      <path d="M16.5 12c0-1.77-1-3.29-2.5-4.03v8.05c1.5-.73 2.5-2.25 2.5-4.02z"/>
+      <path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+    </svg>
+    <svg viewBox="0 0 24 24" class="ico-mute" aria-hidden="true">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+      <path d="M15 9l6 6M21 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </svg>
+  </button>
+
+  <!-- ОБЛОЖКА -->
+  <section class="cover" id="cover">
+    <img class="branch branch-tl" src="img/branch_corner.png" alt="" aria-hidden="true">
+    <img class="branch branch-tr" src="img/branch_corner_r.png" alt="" aria-hidden="true">
+    <img class="branch branch-bl" src="img/branch_corner_r.png" alt="" aria-hidden="true">
+    <img class="branch branch-br" src="img/branch_corner.png" alt="" aria-hidden="true">
+
+    <div class="cover-inner">
+      <p class="cover-eyebrow">Свадьба</p>
+
+      <div class="hearts">
+        <div class="heart-photo">
+          <svg viewBox="0 0 100 100" class="heart-svg" aria-hidden="true">
+            <defs>
+              <clipPath id="hClipM"><path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"/></clipPath>
+            </defs>
+            <g clip-path="url(#hClipM)">
+              <image href="img/maxim_kid.png" x="-25" y="-58" width="151" height="230"/>
+            </g>
+            <path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"
+                  fill="none" stroke="#6b4423" stroke-width="1.4"/>
+          </svg>
+          <span class="heart-label">Максим</span>
+        </div>
+        <div class="heart-photo">
+          <svg viewBox="0 0 100 100" class="heart-svg" aria-hidden="true">
+            <defs>
+              <clipPath id="hClipS"><path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"/></clipPath>
+            </defs>
+            <g clip-path="url(#hClipS)">
+              <image href="img/sasha_kid.png" x="-1" y="-51" width="102" height="212"/>
+            </g>
+            <path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"
+                  fill="none" stroke="#6b4423" stroke-width="1.4"/>
+          </svg>
+          <span class="heart-label">Александра</span>
+        </div>
+      </div>
+
+      <h1 class="cover-names">
+        Максим <span>и</span> Александра
+      </h1>
+
+      <div class="cover-date">
+        <span>11</span>
+        <span class="d-dot">·</span>
+        <span>07</span>
+        <span class="d-dot">·</span>
+        <span>2026</span>
+      </div>
+
+      <button class="cover-open" id="openBtn" aria-label="Открыть приглашение">
+        <span>открыть приглашение</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <main class="content" id="content" aria-hidden="true">
+
+    <!-- Имена + общее фото -->
+    <section class="section names-section">
+      <p class="eyebrow">Save the date</p>
+      <h2 class="script-names">Максим <span>и</span> Александра</h2>
+      <div class="date-line">
+        <span>11</span>
+        <span class="dot"></span>
+        <span>07</span>
+        <span class="dot"></span>
+        <span>2026</span>
+      </div>
+
+      <div class="hero-photo">
+        <img src="img/together_full.jpg" alt="Максим и Александра">
+      </div>
+    </section>
+
+    <!-- Обращение -->
+    <section class="section greeting">
+      <p class="ornament">&#10086;</p>
+      <p class="greeting-text">
+        Дорогие наши родные и друзья!<br><br>
+        Мы решили стать семьёй и хотим разделить этот день с самыми близкими людьми.
+        Будем рады видеть вас на нашем празднике.
+      </p>
+    </section>
+
+    <!-- Место -->
+    <section class="section venue">
+      <p class="eyebrow">Место проведения</p>
+      <h3 class="venue-name">Ресторан NOVO</h3>
+      <p class="venue-address">
+        г. Нижний Новгород<br>
+        слобода Печёры, 110А
+      </p>
+      <a class="btn" href="https://yandex.ru/navi/org/novo/147439346278?si=t84chwkbwgbv1jf0arg45wcd3m" target="_blank" rel="noopener">
+        Посмотреть на карте
+      </a>
+    </section>
+
+    <!-- Программа дня -->
+    <section class="section schedule">
+      <p class="eyebrow">План дня</p>
+
+      <ul class="schedule-list">
+        <li>
+          <span class="sch-time">15:00</span>
+          <span class="sch-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/></svg></span>
+          <span class="sch-label">Сбор гостей</span>
+        </li>
+        <li>
+          <span class="sch-time">16:00</span>
+          <span class="sch-icon"><svg viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3z" fill="currentColor"/></svg></span>
+          <span class="sch-label">Церемония</span>
+        </li>
+        <li>
+          <span class="sch-time">17:00</span>
+          <span class="sch-icon"><svg viewBox="0 0 24 24"><path d="M3 8h4v2H3zm10 0h4v2h-4zM3 14h4v2H3zm10 0h4v2h-4zM8 5h2v14H8zm6 0h2v14h-2z" fill="currentColor"/><path d="M5 3h14v2H5z" fill="currentColor"/></svg></span>
+          <span class="sch-label">Банкет</span>
+        </li>
+        <li>
+          <span class="sch-time">23:00</span>
+          <span class="sch-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 12s4 10 8 10c0 0-2-4-2-10s2-10 2-10z" fill="currentColor"/><circle cx="17" cy="6" r="1" fill="currentColor"/><circle cx="19" cy="10" r="1" fill="currentColor"/></svg></span>
+          <span class="sch-label">Завершение вечера</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Дресс-код -->
+    <section class="section dresscode">
+      <p class="eyebrow">Дресс-код</p>
+      <h3 class="rsvp-title">Цветовая палитра</h3>
+      <p class="dresscode-text">
+        Просим поддержать стиль праздника. Подойдут оттенки <em>оливкового зелёного</em>,
+        <em>шоколадного</em> и <em>бежевого</em>. Шёлк, атлас и матовые ткани приветствуются.
+      </p>
+
+      <div class="palette-row">
+        <span style="background:#5a6a3f"></span>
+        <span style="background:#8a9a5b"></span>
+        <span style="background:#b8c19a"></span>
+        <span style="background:#c9b395"></span>
+        <span style="background:#8b6843"></span>
+        <span style="background:#4a3024"></span>
+      </div>
+
+      <div class="dresscode-img">
+        <img src="img/dresscode_palette.jpg" alt="Палитра дресс-кода">
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section rsvp">
+      <p class="eyebrow">Подтверждение</p>
+      <h3 class="rsvp-title">Будем ждать вашего ответа</h3>
+      <p class="rsvp-sub">Пожалуйста, заполните форму до 1 июня 2026</p>
+
+      <form class="rsvp-form" id="rsvpForm" novalidate>
+        <label>
+          <span>Имя и фамилия</span>
+          <input type="text" name="name" required placeholder="например: Максим и Александра Пилипчуки">
+        </label>
+
+        <label>
+          <span>Сможете ли вы прийти?</span>
+          <select name="attending" required>
+            <option value="">Выберите</option>
+            <option value="yes">Да, обязательно буду</option>
+            <option value="plus_one">Да, буду со спутником</option>
+            <option value="no">К сожалению, не смогу</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Предпочтения по основному блюду</span>
+          <select name="meal">
+            <option value="">Не имеет значения</option>
+            <option value="meat">Мясо</option>
+            <option value="fish">Рыба</option>
+            <option value="veg">Вегетарианское</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Предпочтения по напиткам</span>
+          <input type="text" name="drinks" placeholder="вино, крепкое, без алкоголя">
+        </label>
+
+        <label>
+          <span>Аллергии и особенности питания</span>
+          <input type="text" name="allergy" placeholder="если есть">
+        </label>
+
+        <button type="submit" class="btn btn-primary">Отправить</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Telegram-чат для фото -->
+    <section class="section telegram">
+      <p class="eyebrow">Фото со свадьбы</p>
+      <p class="telegram-text">
+        Мы создадим общий чат, куда каждый сможет скинуть свои фотографии и видео с праздника.
+        Ссылка появится здесь ближе к дате.
+      </p>
+    </section>
+
+    <!-- Подарки -->
+    <section class="section gifts">
+      <p class="eyebrow">О подарках</p>
+      <p class="gifts-text">
+        Самый ценный подарок для нас - ваше присутствие в этот день.
+        Если вы захотите дополнить его, мы будем благодарны вкладу в семейный бюджет.
+      </p>
+    </section>
+
+    <!-- Контакты -->
+    <section class="section contacts">
+      <p class="eyebrow">Контакты</p>
+      <p class="contacts-text">
+        По всем вопросам организации можно связаться с нами.<br>
+        Контакты будут добавлены позже.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p class="script-names small">Максим <span>и</span> Александра</p>
+      <p class="footer-date">11.07.2026</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
