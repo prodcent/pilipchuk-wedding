@@ -14,20 +14,6 @@
 </head>
 <body>
 
-  <!-- Глобальные SVG defs (фильтр чернильности для сердец) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5"/>
-        <feDisplacementMap in="SourceGraphic" scale="2.2"/>
-      </filter>
-      <filter id="ink2" x="-5%" y="-5%" width="110%" height="110%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="9"/>
-        <feDisplacementMap in="SourceGraphic" scale="1.8"/>
-      </filter>
-    </defs>
-  </svg>
-
   <!-- Аудио и кнопка mute -->
   <audio id="bgMusic" loop preload="auto" src="music.mp3"></audio>
   <button class="mute-btn" id="muteBtn" aria-label="Включить или выключить музыку" type="button">
@@ -54,32 +40,46 @@
 
       <div class="hearts">
         <div class="heart-photo">
-          <svg viewBox="0 0 100 100" class="heart-svg" aria-hidden="true">
+          <svg viewBox="0 0 100 96" class="heart-svg" aria-hidden="true">
             <defs>
-              <clipPath id="hClipM"><path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"/></clipPath>
+              <clipPath id="hClipM">
+                <path d="M50,90 C50,90 48,87 45,84 C30,68 4,52 4,26 C4,13 16,4 28,4 C40,4 47,12 50,22 C53,12 60,4 72,4 C84,4 96,13 96,26 C96,52 70,68 55,84 C52,87 50,90 50,90 Z"/>
+              </clipPath>
+              <filter id="heart-shadow-m" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+                <feOffset dx="0" dy="1.5" result="shadow"/>
+                <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+                <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
             <g clip-path="url(#hClipM)">
-              <image href="img/maxim_kid_orig.jpg" x="-10" y="-49" width="120" height="183"/>
+              <image href="img/maxim_kid_orig.jpg" x="-50" y="-95" width="200" height="305"/>
             </g>
-            <g fill="none" stroke="#4a3024" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink)">
-              <path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z" stroke-width="2.5"/>
-              <path d="M50,94 C50,94 7,66 7,31 C7,15 21,5 33,5 C42,5 47,11 50,20 C53,11 58,5 67,5 C79,5 93,15 93,31 C93,66 50,94 50,94 Z" stroke-width="1.4" opacity="0.5"/>
-            </g>
+            <path d="M50,90 C50,90 48,87 45,84 C30,68 4,52 4,26 C4,13 16,4 28,4 C40,4 47,12 50,22 C53,12 60,4 72,4 C84,4 96,13 96,26 C96,52 70,68 55,84 C52,87 50,90 50,90 Z"
+                  fill="none" stroke="#4a3024" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"
+                  filter="url(#heart-shadow-m)"/>
           </svg>
           <span class="heart-label">Максим</span>
         </div>
         <div class="heart-photo">
-          <svg viewBox="0 0 100 100" class="heart-svg" aria-hidden="true">
+          <svg viewBox="0 0 100 96" class="heart-svg" aria-hidden="true">
             <defs>
-              <clipPath id="hClipS"><path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"/></clipPath>
+              <clipPath id="hClipS">
+                <path d="M50,90 C50,90 48,87 45,84 C30,68 4,52 4,26 C4,13 16,4 28,4 C40,4 47,12 50,22 C53,12 60,4 72,4 C84,4 96,13 96,26 C96,52 70,68 55,84 C52,87 50,90 50,90 Z"/>
+              </clipPath>
+              <filter id="heart-shadow-s" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+                <feOffset dx="0" dy="1.5" result="shadow"/>
+                <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+                <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
             <g clip-path="url(#hClipS)">
-              <image href="img/sasha_kid_orig.jpg" x="0" y="-83" width="120" height="248"/>
+              <image href="img/sasha_kid_orig.jpg" x="-32" y="-153" width="164" height="339"/>
             </g>
-            <g fill="none" stroke="#4a3024" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink2)">
-              <path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z" stroke-width="2.5"/>
-              <path d="M51,93 C51,93 8,65 8,30 C8,15 21,5 33,5 C42,5 47,10 50,20 C53,10 58,5 67,5 C80,5 92,15 92,30 C92,65 51,93 51,93 Z" stroke-width="1.4" opacity="0.5"/>
-            </g>
+            <path d="M50,90 C50,90 48,87 45,84 C30,68 4,52 4,26 C4,13 16,4 28,4 C40,4 47,12 50,22 C53,12 60,4 72,4 C84,4 96,13 96,26 C96,52 70,68 55,84 C52,87 50,90 50,90 Z"
+                  fill="none" stroke="#4a3024" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"
+                  filter="url(#heart-shadow-s)"/>
           </svg>
           <span class="heart-label">Александра</span>
         </div>
@@ -119,7 +119,7 @@
       </div>
 
       <div class="hero-photo">
-        <img src="img/together_crop.jpg" alt="Максим и Александра">
+        <img src="img/together_arch.jpg" alt="Максим и Александра">
       </div>
     </section>
 
@@ -289,15 +289,10 @@
       </p>
       <div class="contact-card">
         <p class="contact-name">Ольга Славская</p>
-        <p class="contact-row">
-          <a class="contact-link" href="tel:+79038469960">+7 (903) 846-99-60</a>
-        </p>
-        <p class="contact-row">
-          <a class="contact-link contact-vk" href="https://vk.ru/olgaslavskaya" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.785 16.241s.288-.032.435-.193c.135-.148.131-.425.131-.425s-.019-1.301.582-1.494c.593-.19 1.355 1.27 2.162 1.831.61.426 1.073.333 1.073.333l2.156-.03s1.128-.07.594-.957c-.044-.073-.31-.658-1.594-1.85-1.344-1.247-1.164-1.045.456-3.202.987-1.315 1.382-2.119 1.259-2.464-.118-.327-.844-.24-.844-.24l-2.416.015s-.18-.024-.312.055c-.13.077-.213.257-.213.257s-.383 1.02-.894 1.886c-1.077 1.828-1.508 1.925-1.683 1.81-.41-.265-.307-1.064-.307-1.631 0-1.773.27-2.51-.524-2.703-.264-.064-.458-.106-1.132-.113-.864-.009-1.595.003-2.01.207-.275.135-.488.435-.358.453.16.022.521.099.713.36.249.336.24 1.092.24 1.092s.143 2.092-.333 2.351c-.327.178-.776-.185-1.738-1.844-.493-.85-.865-1.79-.865-1.79s-.072-.176-.2-.27c-.156-.115-.374-.151-.374-.151l-2.297.015s-.345.01-.471.16C2.704 7.382 2.823 7.6 2.823 7.6s1.797 4.205 3.834 6.324c1.866 1.944 3.985 1.816 3.985 1.816h.961z" fill="currentColor"/></svg>
-            ВКонтакте
-          </a>
-        </p>
+        <a class="contact-phone" href="tel:+79038469960">+7 (903) 846-99-60</a>
+        <a class="contact-vk" href="https://vk.ru/olgaslavskaya" target="_blank" rel="noopener" aria-label="ВКонтакте">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.785 16.241s.288-.032.435-.193c.135-.148.131-.425.131-.425s-.019-1.301.582-1.494c.593-.19 1.355 1.27 2.162 1.831.61.426 1.073.333 1.073.333l2.156-.03s1.128-.07.594-.957c-.044-.073-.31-.658-1.594-1.85-1.344-1.247-1.164-1.045.456-3.202.987-1.315 1.382-2.119 1.259-2.464-.118-.327-.844-.24-.844-.24l-2.416.015s-.18-.024-.312.055c-.13.077-.213.257-.213.257s-.383 1.02-.894 1.886c-1.077 1.828-1.508 1.925-1.683 1.81-.41-.265-.307-1.064-.307-1.631 0-1.773.27-2.51-.524-2.703-.264-.064-.458-.106-1.132-.113-.864-.009-1.595.003-2.01.207-.275.135-.488.435-.358.453.16.022.521.099.713.36.249.336.24 1.092.24 1.092s.143 2.092-.333 2.351c-.327.178-.776-.185-1.738-1.844-.493-.85-.865-1.79-.865-1.79s-.072-.176-.2-.27c-.156-.115-.374-.151-.374-.151l-2.297.015s-.345.01-.471.16C2.704 7.382 2.823 7.6 2.823 7.6s1.797 4.205 3.834 6.324c1.866 1.944 3.985 1.816 3.985 1.816h.961z" fill="currentColor"/></svg>
+        </a>
       </div>
     </section>
 
