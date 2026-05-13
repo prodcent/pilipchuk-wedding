@@ -14,7 +14,21 @@
 </head>
 <body>
 
-  <!-- Аудио и кнопка mute (видна и на обложке, и на контенте) -->
+  <!-- Глобальные SVG defs (фильтр чернильности для сердец) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="5"/>
+        <feDisplacementMap in="SourceGraphic" scale="2.2"/>
+      </filter>
+      <filter id="ink2" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="9"/>
+        <feDisplacementMap in="SourceGraphic" scale="1.8"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Аудио и кнопка mute -->
   <audio id="bgMusic" loop preload="auto" src="music.mp3"></audio>
   <button class="mute-btn" id="muteBtn" aria-label="Включить или выключить музыку" type="button">
     <svg viewBox="0 0 24 24" class="ico-sound" aria-hidden="true">
@@ -36,7 +50,7 @@
     <img class="branch branch-br" src="img/branch_corner.png" alt="" aria-hidden="true">
 
     <div class="cover-inner">
-      <p class="cover-eyebrow">Свадьба</p>
+      <p class="cover-eyebrow">Приглашение на свадьбу</p>
 
       <div class="hearts">
         <div class="heart-photo">
@@ -45,10 +59,12 @@
               <clipPath id="hClipM"><path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"/></clipPath>
             </defs>
             <g clip-path="url(#hClipM)">
-              <image href="img/maxim_kid.png" x="-25" y="-58" width="151" height="230"/>
+              <image href="img/maxim_kid_orig.jpg" x="-10" y="-49" width="120" height="183"/>
             </g>
-            <path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"
-                  fill="none" stroke="#6b4423" stroke-width="1.4"/>
+            <g fill="none" stroke="#4a3024" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink)">
+              <path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z" stroke-width="2.5"/>
+              <path d="M50,94 C50,94 7,66 7,31 C7,15 21,5 33,5 C42,5 47,11 50,20 C53,11 58,5 67,5 C79,5 93,15 93,31 C93,66 50,94 50,94 Z" stroke-width="1.4" opacity="0.5"/>
+            </g>
           </svg>
           <span class="heart-label">Максим</span>
         </div>
@@ -58,10 +74,12 @@
               <clipPath id="hClipS"><path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"/></clipPath>
             </defs>
             <g clip-path="url(#hClipS)">
-              <image href="img/sasha_kid.png" x="-1" y="-51" width="102" height="212"/>
+              <image href="img/sasha_kid_orig.jpg" x="0" y="-83" width="120" height="248"/>
             </g>
-            <path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z"
-                  fill="none" stroke="#6b4423" stroke-width="1.4"/>
+            <g fill="none" stroke="#4a3024" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink2)">
+              <path d="M50,92 C50,92 6,64 6,30 C6,14 20,4 33,4 C42,4 47,9 50,18 C53,9 58,4 67,4 C80,4 94,14 94,30 C94,64 50,92 50,92 Z" stroke-width="2.5"/>
+              <path d="M51,93 C51,93 8,65 8,30 C8,15 21,5 33,5 C42,5 47,10 50,20 C53,10 58,5 67,5 C80,5 92,15 92,30 C92,65 51,93 51,93 Z" stroke-width="1.4" opacity="0.5"/>
+            </g>
           </svg>
           <span class="heart-label">Александра</span>
         </div>
@@ -101,18 +119,36 @@
       </div>
 
       <div class="hero-photo">
-        <img src="img/together_full.jpg" alt="Максим и Александра">
+        <img src="img/together_crop.jpg" alt="Максим и Александра">
       </div>
     </section>
 
-    <!-- Обращение -->
+    <!-- Обращение к гостям с календарём -->
     <section class="section greeting">
-      <p class="ornament">&#10086;</p>
+      <h3 class="greeting-title">Дорогие родные<br>и друзья!</h3>
       <p class="greeting-text">
-        Дорогие наши родные и друзья!<br><br>
-        Мы решили стать семьёй и хотим разделить этот день с самыми близкими людьми.
-        Будем рады видеть вас на нашем празднике.
+        Мы рады пригласить вас на наше великое событие - свадьбу!
       </p>
+      <p class="greeting-text">
+        Этот день будет самым значимым и запоминающимся в нашей жизни,
+        и мы хотим разделить его с вами.
+      </p>
+
+      <!-- Календарь июля 2026 -->
+      <div class="calendar">
+        <div class="cal-header">
+          <span class="cal-month">Июль</span>
+          <span class="cal-year">2026</span>
+        </div>
+        <div class="cal-grid">
+          <span class="cal-dow">пн</span><span class="cal-dow">вт</span><span class="cal-dow">ср</span><span class="cal-dow">чт</span><span class="cal-dow">пт</span><span class="cal-dow">сб</span><span class="cal-dow">вс</span>
+          <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+          <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span class="cal-day-mark">11</span><span>12</span>
+          <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+          <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
+          <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+        </div>
+      </div>
     </section>
 
     <!-- Место -->
@@ -165,13 +201,13 @@
         <em>шоколадного</em> и <em>бежевого</em>. Шёлк, атлас и матовые ткани приветствуются.
       </p>
 
-      <div class="palette-row">
-        <span style="background:#5a6a3f"></span>
-        <span style="background:#8a9a5b"></span>
-        <span style="background:#b8c19a"></span>
-        <span style="background:#c9b395"></span>
-        <span style="background:#8b6843"></span>
-        <span style="background:#4a3024"></span>
+      <div class="fabric-row">
+        <span class="fabric" style="background-image:url('img/fabric1.jpg')"></span>
+        <span class="fabric" style="background-image:url('img/fabric2.jpg')"></span>
+        <span class="fabric" style="background-image:url('img/fabric3.jpg')"></span>
+        <span class="fabric" style="background-image:url('img/fabric4.jpg')"></span>
+        <span class="fabric" style="background-image:url('img/fabric5.jpg')"></span>
+        <span class="fabric" style="background-image:url('img/fabric6.jpg')"></span>
       </div>
 
       <div class="dresscode-img">
@@ -248,9 +284,21 @@
     <section class="section contacts">
       <p class="eyebrow">Контакты</p>
       <p class="contacts-text">
-        По всем вопросам организации можно связаться с нами.<br>
-        Контакты будут добавлены позже.
+        По всем вопросам организации<br>
+        свяжитесь с нашим организатором:
       </p>
+      <div class="contact-card">
+        <p class="contact-name">Ольга Славская</p>
+        <p class="contact-row">
+          <a class="contact-link" href="tel:+79038469960">+7 (903) 846-99-60</a>
+        </p>
+        <p class="contact-row">
+          <a class="contact-link contact-vk" href="https://vk.ru/olgaslavskaya" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.785 16.241s.288-.032.435-.193c.135-.148.131-.425.131-.425s-.019-1.301.582-1.494c.593-.19 1.355 1.27 2.162 1.831.61.426 1.073.333 1.073.333l2.156-.03s1.128-.07.594-.957c-.044-.073-.31-.658-1.594-1.85-1.344-1.247-1.164-1.045.456-3.202.987-1.315 1.382-2.119 1.259-2.464-.118-.327-.844-.24-.844-.24l-2.416.015s-.18-.024-.312.055c-.13.077-.213.257-.213.257s-.383 1.02-.894 1.886c-1.077 1.828-1.508 1.925-1.683 1.81-.41-.265-.307-1.064-.307-1.631 0-1.773.27-2.51-.524-2.703-.264-.064-.458-.106-1.132-.113-.864-.009-1.595.003-2.01.207-.275.135-.488.435-.358.453.16.022.521.099.713.36.249.336.24 1.092.24 1.092s.143 2.092-.333 2.351c-.327.178-.776-.185-1.738-1.844-.493-.85-.865-1.79-.865-1.79s-.072-.176-.2-.27c-.156-.115-.374-.151-.374-.151l-2.297.015s-.345.01-.471.16C2.704 7.382 2.823 7.6 2.823 7.6s1.797 4.205 3.834 6.324c1.866 1.944 3.985 1.816 3.985 1.816h.961z" fill="currentColor"/></svg>
+            ВКонтакте
+          </a>
+        </p>
+      </div>
     </section>
 
     <footer class="footer">
