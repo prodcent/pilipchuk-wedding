@@ -93,18 +93,18 @@ body {
   white-space: nowrap;
 }
 
-/* Сердечки с фото детей */
-.hearts {
+/* Сердечки с фото детей (секция childhood) */
+.childhood .hearts {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 28px;
-  margin-bottom: 44px;
+  margin-top: 12px;
 }
 
 .heart-photo {
   position: relative;
-  width: clamp(180px, 30vw, 240px);
+  width: clamp(150px, 26vw, 200px);
   flex-shrink: 0;
   text-align: center;
 }
